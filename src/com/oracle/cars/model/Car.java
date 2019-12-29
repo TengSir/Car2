@@ -31,6 +31,15 @@ public class Car implements Serializable {
 	/** shoujia. */
 	private Integer shoujia;
 
+	/** nianfen. */
+	private String nianfen;
+
+	/** suozaidi. */
+	private String suozaidi;
+
+	/** tupian. */
+	private String tupian;
+
 	/**
 	 * �R���X�g���N�^.
 	 */
@@ -149,6 +158,63 @@ public class Car implements Serializable {
 	 */
 	public Integer getShoujia() {
 		return this.shoujia;
+	}
+
+	/**
+	 * nianfen ��ݒ肵�܂�.
+	 * 
+	 * @param nianfen
+	 *            nianfen
+	 */
+	public void setNianfen(String nianfen) {
+		this.nianfen = nianfen;
+	}
+
+	/**
+	 * nianfen ���擾���܂�.
+	 * 
+	 * @return nianfen
+	 */
+	public String getNianfen() {
+		return this.nianfen;
+	}
+
+	/**
+	 * suozaidi ��ݒ肵�܂�.
+	 * 
+	 * @param suozaidi
+	 *            suozaidi
+	 */
+	public void setSuozaidi(String suozaidi) {
+		this.suozaidi = suozaidi;
+	}
+
+	/**
+	 * suozaidi ���擾���܂�.
+	 * 
+	 * @return suozaidi
+	 */
+	public String getSuozaidi() {
+		return this.suozaidi;
+	}
+
+	/**
+	 * tupian ��ݒ肵�܂�.
+	 * 
+	 * @param tupian
+	 *            tupian
+	 */
+	public void setTupian(String tupian) {
+		this.tupian = tupian;
+	}
+
+	/**
+	 * tupian ���擾���܂�.
+	 * 
+	 * @return tupian
+	 */
+	public String getTupian() {
+		return this.tupian;
 	}
 
 	/**

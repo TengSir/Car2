@@ -87,26 +87,63 @@
       </section>
       <table class="table">
        <tr>
+        <th>照片</th>
         <th>品牌名</th>
         <th>系列</th>
         <th>公里数</th>
         <th>颜色</th>
         <th>售价</th>
+        <th>年份</th>
+        <th>所在地</th>
         <th>操作</th>
        </tr>
       <%  List<Car>  cars=(List<Car>)request.getAttribute("cars");
       		for(Car c:cars){
       %>
-	       <tr>
+	       <tr onmousemove="this.style.boxShadow='0px 1px 4px red';this.style.fontWeight='bold';this.style.textShadow='0px 0px 2px #19a97b'" onmouseout="this.style.boxShadow='';this.style.fontWeight='normal';this.style.textShadow=''">
+		        <td class="center"><img src="<%=c.getTupian() %>" style="width: 100px;height: 80px;border:1px dotted black;box-shadow: 0px 0px 4px skyblue"/></td>
 		        <td class="center"><%=c.getPinpaiming() %></td>
 		        <td class="center"><%=c.getXielie() %></td>
 		        <td class="center"><%=c.getGonglishu() %>KM</td>
 		        <td class="center"><%=c.getYanse() %></td>
+		     	<%--
+		     	<%  switch(c.getYanse()){
+			     	case "黑色":	{
+			     		%>
+			     		 <td class="center"  style="background: black;color:white;font-weight: bold;"><%=c.getYanse() %></td>
+			     		<%
+			     		break;
+			     	}
+			     	case "红色":	{
+			     		%>
+			     		  <td class="center"  style="background: red;color:white;font-weight: bold;"><%=c.getYanse() %></td>
+			     		<%
+			     		break;
+			     	}
+			     	case "白色":	{
+			     		%>
+			     		<td class="center"  style="background: white;color:black;font-weight: bold;"><%=c.getYanse() %></td>
+			     		<%
+			     		break;
+			     	}
+			     	case "银色":	{
+			     		%>
+			     		 <td class="center"  style="background:RGB(200 , 200 , 200);color:black;font-weight: bold;"><%=c.getYanse() %></td>
+			     		<%
+			     		break;
+			     	}
+		     	
+		     	}%>
+		     	
+		     	 --%>
+			     	
+		     
 		        <td class="center"><%=c.getShoujia() %>￥</td>
+		        <td class="center"><%=c.getNianfen() %></td>
+		        <td class="center"><%=c.getSuozaidi() %></td>
 		        <td class="center">
-		         <a href="http://www.deathghost.cn" title="预览" class="link_icon" target="_blank">&#118;</a>
 		         <a href="product_detail.html" title="编辑" class="link_icon">&#101;</a>
-		         <a href="#" title="删除" class="link_icon">&#100;</a>
+		         <a href="javascript:if(window.confirm('您确认要删除这个车辆信息吗？')){location.href='CarServlet?method=delete&carid=<%=c.getCarid() %>'}" title="删除" class="link_icon">&#100;</a>
 		        </td>
 	       </tr>
       
@@ -124,5 +161,21 @@
       </aside>
  </div>
 </section>
+
+		<%  if(request.getAttribute("deleteResult")!=null){
+			if(request.getAttribute("deleteResult").toString().equals("true")){
+				%>
+				<script type="text/javascript">
+				alert('删除成功！');
+				</script>
+				<%
+			}else{
+				%>
+				<script type="text/javascript">
+				alert('删除失败！');
+				</script>
+				<%
+				}
+			} %>
 </body>
 </html>

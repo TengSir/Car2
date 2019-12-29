@@ -1,9 +1,7 @@
+create database  cars2 charset=utf8;
 
+use cars2;
 /* Drop Tables */
-
-create database Cars charset=utf8;
-
-use Cars;
 
 DROP TABLE CAR;
 
@@ -20,8 +18,11 @@ CREATE TABLE CAR
 	GONGLISHU INT,
 	YANSE VARCHAR(20),
 	SHOUJIA INT,
+	NIANFEN VARCHAR(20),
+	SUOZAIDI VARCHAR(20),
+	TUPIAN VARCHAR(200),
 	PRIMARY KEY (CARID)
-);
+) charset=utf8;
 
 
 

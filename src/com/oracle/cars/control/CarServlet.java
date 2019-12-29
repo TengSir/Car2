@@ -45,6 +45,16 @@ public class CarServlet extends HttpServlet {
 			case "delete":
 			{
 				System.out.println("删除二手车的方法");
+				//1.获取页面超链接传过来的要删除的车辆id
+				String carid=request.getParameter("carid");
+				
+				//2.调用dao的删除方法删除这个车辆信息
+				boolean result=dao.deleteCar(Integer.parseInt(carid));
+				//3.将删除操作的结果存储到request范围内，然后到页面判断结果提示用户
+				request.setAttribute("deleteResult", result);
+				
+				//4.删除执行完毕，无论成功还是失败都要跳转到列表页面
+				request.getRequestDispatcher("CarServlet?method=listAll").forward(request, response);
 				break;
 			}
 			case "update":
