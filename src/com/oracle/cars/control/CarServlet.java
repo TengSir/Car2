@@ -1,41 +1,58 @@
 package com.oracle.cars.control;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.oracle.cars.model.Car;
+import com.oracle.cars.model.CarDAO;
+
 /**
  * Servlet implementation class CarServlet
  */
 @WebServlet("/CarServlet")
 public class CarServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CarServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private CarDAO dao=new CarDAO();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		doPost(request, response);
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String method=request.getParameter("method");
+		switch (method) {
+			case "listAll":
+			{
+				System.out.println("查询显示有的后台方法");
+				//1.调用dao方法查询所有的车辆信息
+				List<Car> cars=dao.listAll();
+				
+				System.out.println(cars.size());
+				//2.将查询出来的数据存储到request范围内
+				request.setAttribute("cars", cars);
+				//3.跳转到显示所有车辆的jsp页面上
+				request.getRequestDispatcher("carList.jsp").forward(request, response);
+				break;
+			}
+			case "add":
+			{
+				System.out.println("添加二手车的方法");
+				break;
+			}
+			case "delete":
+			{
+				System.out.println("删除二手车的方法");
+				break;
+			}
+			case "update":
+			{
+				System.out.println("修改二手车的方法");
+				break;
+			}
+		}
 	}
 
 }

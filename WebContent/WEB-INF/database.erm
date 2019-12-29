@@ -44,10 +44,10 @@
 			<excel_output></excel_output>
 			<excel_template></excel_template>
 			<image_output></image_output>
-			<java_output></java_output>
-			<package_name></package_name>
+			<java_output>C:\Users\Administrator\git\Car2</java_output>
+			<package_name>com.oracle.cars.model</package_name>
 			<class_name_suffix></class_name_suffix>
-			<src_file_encoding></src_file_encoding>
+			<src_file_encoding>UTF-8</src_file_encoding>
 			<put_diagram_on_excel>false</put_diagram_on_excel>
 			<use_logical_name_as_sheet>false</use_logical_name_as_sheet>
 			<create_comment>true</create_comment>
@@ -100,7 +100,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2019-12-28 16:28:36</creation_date>
-			<updated_date>2019-12-28 16:32:25</updated_date>
+			<updated_date>2019-12-29 15:30:13</updated_date>
 			<model_property>
 				<name>Project Name</name>
 				<value></value>
@@ -219,12 +219,12 @@
 	<contents>
 		<table>
 			<id>0</id>
-			<height>75</height>
-			<width>120</width>
+			<height>183</height>
+			<width>214</width>
 				<font_name>微软雅黑</font_name>
 				<font_size>9</font_size>
-			<x>187</x>
-			<y>75</y>
+			<x>25</x>
+			<y>59</y>
 			<color>
 				<r>128</r>
 				<g>128</g>
